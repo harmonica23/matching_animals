@@ -19,8 +19,8 @@ JavaScript
 ### **_Credits_**
 sources and images will be linked here.
 
-***
-### **_Screenshots of Balsamiq Wire Frame_**
+The following images are my wiring framing rendered in **Balsamiq**:
+
 ![default state](https://github.com/harmonica23/matching_animals/assets/150699243/1c93c526-f725-4d74-8b10-34b703454cf8)
 
 ![first move match](https://github.com/harmonica23/matching_animals/assets/150699243/bd297439-b02d-4dd1-ad52-3384ec8678c9)
@@ -32,3 +32,4 @@ sources and images will be linked here.
 ![Move 4 another match, etc](https://github.com/harmonica23/matching_animals/assets/150699243/b319bb89-e3f8-4cee-a7de-2a9e3f71dfed)
 
 ![Board complete - end game](https://github.com/harmonica23/matching_animals/assets/150699243/f777381a-3e15-455b-86b1-b780a17767db)
+
