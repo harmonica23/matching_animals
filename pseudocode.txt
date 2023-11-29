@@ -12,11 +12,14 @@
     -Create HTML elements for each card on the game board.
     -Assign unique id to each card card to identify them.
     -Display the initial state of the board - all card's backs (solid color)
+    -Allow player to click a button to initialize the game
+        -button disappears while game is active
 
     function renderBoard():
         createHTMLCards()
         assignUniqueIDs()
         DisplayBacksOfCards()
+        playerClickPlay()
 
 3. Handle Card Click:
     -Add event listeners to all cards.

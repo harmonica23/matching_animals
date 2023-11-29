@@ -1,5 +1,72 @@
 * {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    background-color: rgba(248, 125, 9, 0.628);
+}
+
+.game-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 10px;
+    max-width: 600px;
+}
+
+header {
+    text-align: center;
+}
+
+main {
+    text-align: center;
+}
+
+#game-board {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.card {
+    width: 100px;
+    height: 100px;
+    background-color: brown;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+#start-game-btn {
+    margin-top: auto; /* push button to the bottom */
+    margin-bottom: 20px;
+    padding: 11px; /* space btw text and border */
+    font-size: 16px;
+    cursor: pointer;
+    border: solid;
+    border-radius: 50px;
+    display: block; /* set to block initially, but this will shift to none while game is active */
+    background-color: rgb(24, 94, 91);
+    color: white;
+}
+
+#play-again-btn {
+    margin-top: auto; /* push button to the bottom */
+    margin-bottom: 20px;
+    padding: 11px; /* space btw text and border */
+    font-size: 16px;
+    cursor: pointer;
+    border: solid;
+    border-radius: 50px;
+    display: none; /* set to none initially, but this will shift to block when all cards matched */
+    background-color: rgb(24, 94, 91);
+    color: white;
 }
