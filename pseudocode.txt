@@ -2,11 +2,21 @@
     -Create an array to store the animals on the board (e.g., animalsArray).
     -Duplicate the array to create matching pairs.
     -"Shuffle" the arrays to randomize card positions.
+    
+    function initializeGame():
+        animalsArray = ['cat', 'dog', 'rabbit', 'chicken', 'cow', 'horse', 'sheep', 'pig']
+        duplicateArrayToMatchingPairs()
+        shuffleArray(animalsArray)
 
 2. Render Board:
     -Create HTML elements for each card on the game board.
     -Assign unique id to each card card to identify them.
     -Display the initial state of the board - all card's backs (solid color)
+
+    function renderBoard():
+        createHTMLCards()
+        assignUniqueIDs()
+        DisplayBacksOfCards()
 
 3. Handle Card Click:
     -Add event listeners to all cards.
@@ -18,6 +28,16 @@
         -Allow player to flip a second card.
     -If card is the second card, save it as "second card".
 
+    function handleCardClick(card)
+        addEventListenerToCard(card)
+        OnCardClickFlipToReveal(card)
+        if IsFirstCardInTurn():
+            saveAsFirstCard(card)
+            keepCardOpen(card)
+            allowPlayerToFlipSecondCard()
+        else:
+            saveAsSecondCard(card)
+
 4. Compare Cards:
     -Compare the animals on the first and second cards.
     -If cards match:
@@ -26,11 +46,26 @@
     -If cards do not match:
         -Flip both cards back over after a short delay
 
+    function compareCards(firstCard, secondCard):
+        if cardsMatch(firstCard, secondCard):
+            keepCardsOpen(firstCard, secondCard)
+            if allCardsMatched():
+                displayGameCompletionMessage()
+                revealPlayAgainButton()
+        else:
+            flipBothCardsBackAfterDelay(firstCard, secondCard)
+
 5. Check Game Completion:
     -If all cards are matched, display a game completion message.
     -Reveal a clickable button to play again.
+    (this function allCardsMatched rolled into step 4, see above)
 
 6. If player chooses to play again:
     -Reset the game board.
     -Shuffle the cards.
     -Allow player to start a new game.
+
+    function playAgain():
+        resetGameBoard()
+        shuffleCards()
+        allowPlayerToStartNewGame()
