@@ -16,7 +16,9 @@ function renderBoard() {
     createHTMLCards(gameBoard);
     assignUniqueIDs();
     displayBackOfCards();
-    document.getElementById('start-game-btn').addEventListener('click', () => startGame());
+    // set up event listener for first square click
+    const firstSquare = document.querySelector('.card');
+    firstSquare.addEventListener('click', handleCardClick(firstSquare));
 }
 
 function createHTMLCards(gameBoard) {
@@ -29,15 +31,20 @@ function createHTMLCards(gameBoard) {
         cardContent.className = 'card-content';
         cardContent.textContent = '?'; //initial hidden content
 
-        card.appendChild(cardContent);
+        const cardImage = document.createElement('img') ;
+        cardImage.src = 'images/dog.jpg'; // dog is currently linked to test
+        cardImage.alt = 'Hidden';
+
+        cardContent.appendChild(cardImage);
+        // card.appendChild(cardContent);
         gameBoard.appendChild(card);
     }
 }
 
 function assignUniqueIDs() {
     const cards = document.querySelectorAll('.card');
-    cards.forEach((cards, index)=> {
-        card.id = `card-${index}`;
+    cards.forEach((cards, index) => {
+        // card.id = `card-${index}`;
     });
 }
 
@@ -55,20 +62,25 @@ function handleCardClick(card) {
         return; //do nothing if game is not active or card is already flipped
     }
 
+    // check if this is the first click, and if so, start the game
+    if (!gameActive) {
+        startGame
+    }
+
     flipCard(card);
 
     if (flippedCards.length === 2) {
         compareCards(flippedCards[0], flippedCards[1]);
         flippedCards = [];
     }
-
-function flipCard(card) {
-    card.classList.add('flipped');
-    const cardContent = card.querySelector('.card-content');
-    const animalIndex = parseInt(card.id.split('-')[1]) / 2;
-    cardContent.textContent = animalsArray[animalIndex];
-    flippedCards.push(card);
-    }
+}
+    function flipCard(card) {
+        card.classList.add('flipped');
+        const cardImage = card.querySelector('.card-content img');
+        const animalIndex = parseInt(card.id.split('-')[1]) / 2;
+        cardImage.src = 'images/' + animalsArray[animalIndex] + '.jpg';
+        cardImage.alt = animalsArray[animalIndex];
+        flippedCards.push(card);
 }
 
 // Step 4: Compare Cards and Check Game Completion
