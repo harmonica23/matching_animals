@@ -14,8 +14,8 @@ function initializeGame() {
 function renderBoard() {
     const gameBoard = document.getElementById('game-board');
     createHTMLCards(gameBoard);
-    // assignUniqueIDs();
-    // displayBackOfCards();
+    assignUniqueIDs();
+    displayBackOfCards();
     document.getElementById('start-game-btn').addEventListener('click', () => startGame());
 }
 

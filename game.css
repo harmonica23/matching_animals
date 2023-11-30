@@ -9,6 +9,8 @@ body {
     padding: 0;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
     background-color: rgba(248, 125, 9, 0.628);
     min-height: 100vh;
 }
@@ -18,12 +20,32 @@ header {
     margin: 20px;
 }
 
+p {
+    margin-bottom: 32px;
+}
+
 main {
     text-align: center;
     flex: 1;
 }
 
-#start-game-btn {
+#game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.card {
+    width: 100px;
+    height: 100px;
+    background-color: brown;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+#play-again-btn {
     /* margin-top: auto; push button to the bottom */
     margin: 20px auto;
     padding: 11px; /* space btw text and border */
@@ -31,7 +53,7 @@ main {
     cursor: pointer;
     border: solid;
     border-radius: 50px;
-    display: block; /* set to block initially, but this will shift to none while game is active */
+    display: none; /* set to block initially, but this will shift to none while game is active */
     background-color: rgb(24, 94, 91);
     color: white;
 }
@@ -41,3 +63,4 @@ footer {
     margin-top: auto;
     padding: 10px;
 }
+
