@@ -1,5 +1,8 @@
 // Step 1: Initialize Game
 let animalsArray = ['cat', 'dog', 'rabbit', 'chicken', 'cow', 'horse', 'sheep', 'pig'];
+let gameActive = false;
+let flippedCards = [];
+let matchedPairs = 0;
 
 function initializeGame() {
     // duplicateArrayToMatchingPairs();
@@ -13,14 +16,13 @@ function renderBoard() {
     createHTMLCards(gameBoard);
     // assignUniqueIDs();
     // displayBackOfCards();
-    document.getElementById('start-game-btn').addEventListener('click', () => playerClickPlay());
+    document.getElementById('start-game-btn').addEventListener('click', () => startGame());
 }
 
 function createHTMLCards(gameBoard) {
     for (let i = 0; i < animalsArray.length * 2; i++) {
         const card = document.createElement('div');
         card.className = 'card';
-        // card.setAttribute('data-animal', animalsArray[Math.floor(i / 2)])
         card.addEventListener('click', handleCardClick);
 
         const cardContent = document.createElement('div');
@@ -31,8 +33,47 @@ function createHTMLCards(gameBoard) {
         gameBoard.appendChild(card);
     }
 }
-function handleCardClick(card) {
-    console.log('click');
+
+function assignUniqueIDs() {
+    const cards = document.querySelectorAll('.card');
+    cards.forEach((cards, index)=> {
+        card.id = `card-${index}`;
+    });
 }
 
-initializeGame();
+function displayBackOfCards() {
+
+}
+
+function startGame() {
+
+}
+
+// Step 3: Handle Card Click
+function handleCardClick(card) {
+    if (!gameActive || card.classList.contains('flipped')) {
+        return; //do nothing if game is not active or card is already flipped
+    }
+
+    flipCard(card);
+
+    if (flippedCards.length === 2) {
+        compareCards(flippedCards[0], flippedCards[1]);
+        flippedCards = [];
+    }
+
+function flipCard(card) {
+    card.classList.add('flipped');
+    const cardContent = card.querySelector('.card-content');
+    const animalIndex = parseInt(card.id.split('-')[1]) / 2;
+    cardContent.textContent = animalsArray[animalIndex];
+    flippedCards.push(card);
+    }
+}
+
+// Step 4: Compare Cards and Check Game Completion
+
+
+// Step 5: If player chooses to 'play again'
+
+initializeGame(); //this is my last line of code
