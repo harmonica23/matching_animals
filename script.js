@@ -1,21 +1,20 @@
+// credit: Fisher-Yates shuffle algorithm shown to me by chatgpt
+// function shuffleArray(array) {
+//     for (let i = array.length - 1; i > 0; i--) {
+//         const j = Math.floor(Math.random() * (i + 1));
+//         [array[i], array[j]] = [array[j], array[i]];
+//     }
+//     return array;
+// }
+
 // Step 1: Initialize Game
-let animalsArray = ['cat', 'dog', 'rabbit', 'chicken', 'cow', 'horse', 'sheep', 'pig'];
+let animalsArray = ['images/cat.jpg', 'images/dog.jpg', 'images/rabbit.jpg', 'images/chicken.jpg', 'images/cow.jpg', 'images/horse.jpg', 'images/sheep.jpg', 'images/pig.jpg'];
 let gameActive = false;
 let flippedCards = [];
 let matchedPairs = 0;
 
-// credit: I did not write this function - it is the Fisher-Yates shuffle algorithm shown to me by chatgpt
-function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
-}
-
 function initializeGame() {
     duplicateArrayToMatchingPairs();
-    shuffleArray(animalsArray);
     renderBoard();
 }
 
@@ -27,54 +26,58 @@ function duplicateArrayToMatchingPairs() {
 function renderBoard() {
     const gameBoard = document.getElementById('game-board');
     createHTMLCards(gameBoard);
-    assignUniqueIDs();
-    displayBackOfCards();
+    // assignUniqueIDs();
+
     // set up event listener for first square click
     const firstSquare = document.querySelector('.card');
     firstSquare.addEventListener('click', handleCardClick(firstSquare));
 }
 
 function createHTMLCards(gameBoard) {
-    const shuffledAnimals = shuffleArray([...animalsArray, ...animalsArray]);
-
-    for (let i = 0; i < animalsArray.length * 2; i++) {
+    let distroBoard = animalsArray
+    for (let a = distroBoard.length - 1; a > 0; a--) {
+        const j = Math.floor(Math.random() * (a + 1));
+        [distroBoard[a], distroBoard[j]] = [distroBoard[j], distroBoard[a]];
+    }
+    console.log(distroBoard);
+    for (let i = 0; i < distroBoard.length; i++) {
         const card = document.createElement('div');
         card.className = 'card';
-        card.addEventListener('click', handleCardClick(card));
+        card.addEventListener('click', handleCardClick);
 
         const cardContent = document.createElement('div');
         cardContent.className = 'card-content';
-
+    // let randomIndex = Math.floor(Math.random() * distroBoard.length)
         const cardImage = document.createElement('img') ;
-        cardImage.src = 'images/dog.jpg'; // dog is currently linked to test
+        cardImage.classList.add('card-image');
+        // cardImage.src = 'images/dog.jpg'; // dog is currently linked to test
         cardImage.alt = 'Hidden'; // hide image until click to flip
-
+        cardImage.src = distroBoard[i]
         cardContent.appendChild(cardImage);
-        // card.appendChild(cardContent);      <---- if I comment this line in, my dog takes up the entire page
+        card.appendChild(cardContent); 
         gameBoard.appendChild(card);
     }
 }
 
-function assignUniqueIDs() { // stuck here 
-    const cards = document.querySelectorAll('.card');
-    cards.forEach((cards, index) => {
-        // card.id = `card-${index}`;
-    });
-}
+// function assignUniqueIDs() { // stuck here 
+//     const cards = document.querySelectorAll('.card');
+//     cards.forEach((card, index) => {
+//         card.id = `card-${index}`;
+//         // console.log(card)
+//     });
 
-function displayBackOfCards() {
-    // want to keep solid color squares here - not sure what to do
-}
+
+// }
 
 
 // Step 3: Handle Card Click
-function startGame() {  // how do I shuffle the array upon page load BEFORE click?
+function startGame() { 
     gameActive = true;
-    shuffleArray(animalsArray);
 }
 
 function handleCardClick(card) {
-    if (!gameActive || card.classList.contains('flipped')) {
+    console.log(card);
+    if (!gameActive || card.target.classList.contains('flipped')) {
         return; //do nothing if game is not active or card is already flipped
     }    
     // check if this is the first click, and if so, start the game
@@ -90,12 +93,7 @@ function handleCardClick(card) {
     }
 }
     function flipCard(card) {
-        card.classList.add('flipped');
-        const cardImage = card.querySelector('.card-content img');
-        const animalIndex = parseInt(card.id.split('-')[1]) / 2;
-        cardImage.src = 'images/' + animalsArray[animalIndex] + '.jpg';
-        cardImage.alt = animalsArray[animalIndex];
-        flippedCards.push(card);
+        card.target.classList.add('flipped');
 }
 
 // Step 4: Compare Cards and Check Game Completion
@@ -144,4 +142,5 @@ function resetGameBoard() {
 }
 
 
-initializeGame(); //this is my last line of code
+initializeGame(); 
+startGame();  // calling this at the end of my script with the intention of it shuffling the array upon page load - does it work?
