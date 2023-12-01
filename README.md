@@ -17,7 +17,7 @@ CSS
 JavaScript
 ***
 ### **_Credits_**
-sources and images will be linked here.
+Fisher-Yates shuffle algorithm shown to me by chatgpt and implemented with the guidance of Glenn Brown.
 
 The following images are my wiring framing rendered in **Balsamiq**:
 

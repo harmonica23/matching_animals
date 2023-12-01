@@ -11,7 +11,9 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    background-color: rgba(248, 125, 9, 0.628);
+    background-image: url('../images/farm.jpg');
+    background-size: cover;
+    background-position: center;
     min-height: 100vh;
 }
 
@@ -38,7 +40,7 @@ main {
 .card {
     width: 100px;
     height: 100px;
-    background-color: brown;
+    background-color: rgba(165, 42, 42, 0.67);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -59,10 +61,10 @@ main {
     padding: 10px; /* space btw text and border */
     font-size: 16px;
     cursor: pointer;
-    border: solid;
+    border: solid rgb(85, 59, 59);
     border-radius: 50px;
-    display: none; /* set to none initially, but want this will shift to block when game is over */
-    background-color: rgb(24, 94, 91);
+    display: none; 
+    background-color: rgba(165, 42, 42, 0.67);
     color: white;
 }
 

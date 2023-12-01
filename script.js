@@ -7,14 +7,19 @@ let flippedCards = [];
 let matchedPairs = 0;
 
 //----cached elements----//
+const playAgainBtn = document.querySelector('#play-again-btn')
 
 //----event listeners----//
+playAgainBtn.addEventListener('click', () => {
+    initializeGame();
+})
 
 //----functions----//
 initializeGame();
 
 function initializeGame() {
-    duplicateArrayToMatchingPairs();
+    matchedPairs = 0;
+    document.querySelector('#play-again-btn').style.display = 'none';
     renderBoard();
 }
 
@@ -24,12 +29,12 @@ function duplicateArrayToMatchingPairs() {
 
 function renderBoard() {
     const gameBoard = document.getElementById('game-board');
+    gameBoard.replaceChildren();
     createHTMLCards(gameBoard);
 }
 
 function createHTMLCards(gameBoard) {
-    // credit: Fisher-Yates shuffle algorithm shown to me by chatgpt and implemented w/ TA Glenn 
-    let distroBoard = animalsArray
+    let distroBoard = [...animalsArray, ...animalsArray]
     for (let a = distroBoard.length - 1; a > 0; a--) {
         const j = Math.floor(Math.random() * (a + 1));
         [distroBoard[a], distroBoard[j]] = [distroBoard[j], distroBoard[a]];
@@ -39,7 +44,7 @@ function createHTMLCards(gameBoard) {
         const card = document.createElement('div');
         card.className = 'card';
 
-        card.addEventListener('click', (event) => handleCardClick(event)); // how do I get this out??
+        card.addEventListener('click', (event) => handleCardClick(event));
 
         const cardContent = document.createElement('div');
         cardContent.className = 'card-content';
@@ -61,8 +66,6 @@ function startGame() {
 
 // Step 3: Handle Card Click
 function handleCardClick(event) {
-    // console.log(event.target);
-
     const card = event.target;
 
     if (!gameActive || !card.classList.contains('flipped')) {
@@ -74,10 +77,8 @@ function handleCardClick(event) {
     }
 
     flipCard(card);
-    // console.log('bp1')
-    // console.log(`flippedCards: ${flippedCards}`)
+
     if (flippedCards.length === 2) {
-        // console.log('bp2')
         compareCards(flippedCards[0], flippedCards[1]);
         flippedCards = [];
     }
@@ -96,11 +97,7 @@ function compareCards(firstCard, secondCard) {
         console.log('match')
         matchedPairs++;
         checkWin();
-        console.log(matchedPairs);
-        if (allCardsMatched()) {
-            displayGameCompletionMessage();
-            revealPlayAgainButton();
-        }
+        console.log('matchedPairs = ', matchedPairs);
     } else {
         console.log('no match')
         setTimeout(() => {
@@ -114,31 +111,14 @@ function compareCards(firstCard, secondCard) {
 function checkWin() {
     if (matchedPairs >= 8) {
         console.log('you win!')
+    document.querySelector('#play-again-btn').style.display = 'block';
     } else {
         return;
     }
 }
 
-function allCardsMatched() {
-
-}
-
-function displayGameCompletionMessage() {
-
-}
-
-function revealPlayAgainButton() {
-
-}
-
-// Step 5: If player chooses to 'play again'
-function playAgain() {
-
-}
-
-function resetGameBoard() {
-
-}
 
 
-// calling this at the end of my script with the intention of it shuffling the array upon page load - does it work?
+
+
+
