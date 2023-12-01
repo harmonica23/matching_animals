@@ -45,10 +45,18 @@ main {
     cursor: pointer;
 }
 
+.flipped {
+   opacity: 0; 
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+}
+
 #play-again-btn {
-    /* margin-top: auto; push button to the bottom */
     margin: 20px auto;
-    padding: 11px; /* space btw text and border */
+    padding: 10px; /* space btw text and border */
     font-size: 16px;
     cursor: pointer;
     border: solid;
@@ -62,9 +70,4 @@ footer {
     text-align: center;
     margin-top: auto;
     padding: 10px;
-}
-
-.card-image {
-    width: 100%;
-    height: 100%;
 }

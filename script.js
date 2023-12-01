@@ -1,17 +1,17 @@
-// credit: Fisher-Yates shuffle algorithm shown to me by chatgpt
-// function shuffleArray(array) {
-//     for (let i = array.length - 1; i > 0; i--) {
-//         const j = Math.floor(Math.random() * (i + 1));
-//         [array[i], array[j]] = [array[j], array[i]];
-//     }
-//     return array;
-// }
-
-// Step 1: Initialize Game
+//----constants----//
 let animalsArray = ['images/cat.jpg', 'images/dog.jpg', 'images/rabbit.jpg', 'images/chicken.jpg', 'images/cow.jpg', 'images/horse.jpg', 'images/sheep.jpg', 'images/pig.jpg'];
+
+//----state variables----//
 let gameActive = false;
 let flippedCards = [];
 let matchedPairs = 0;
+
+//----cached elements----//
+
+//----event listeners----//
+
+//----functions----//
+initializeGame();
 
 function initializeGame() {
     duplicateArrayToMatchingPairs();
@@ -22,18 +22,13 @@ function duplicateArrayToMatchingPairs() {
     animalsArray = [...animalsArray, ...animalsArray];
 }
 
-// Step 2: Render Board
 function renderBoard() {
     const gameBoard = document.getElementById('game-board');
     createHTMLCards(gameBoard);
-    // assignUniqueIDs();
-
-    // set up event listener for first square click
-    const firstSquare = document.querySelector('.card');
-    firstSquare.addEventListener('click', handleCardClick(firstSquare));
 }
 
 function createHTMLCards(gameBoard) {
+    // credit: Fisher-Yates shuffle algorithm shown to me by chatgpt and implemented w/ TA Glenn 
     let distroBoard = animalsArray
     for (let a = distroBoard.length - 1; a > 0; a--) {
         const j = Math.floor(Math.random() * (a + 1));
@@ -43,81 +38,85 @@ function createHTMLCards(gameBoard) {
     for (let i = 0; i < distroBoard.length; i++) {
         const card = document.createElement('div');
         card.className = 'card';
-        card.addEventListener('click', handleCardClick);
+
+        card.addEventListener('click', (event) => handleCardClick(event)); // how do I get this out??
 
         const cardContent = document.createElement('div');
         cardContent.className = 'card-content';
-    // let randomIndex = Math.floor(Math.random() * distroBoard.length)
-        const cardImage = document.createElement('img') ;
-        cardImage.classList.add('card-image');
-        // cardImage.src = 'images/dog.jpg'; // dog is currently linked to test
+        const cardImage = document.createElement('img');
+        cardImage.className = 'card-image flipped';
         cardImage.alt = 'Hidden'; // hide image until click to flip
         cardImage.src = distroBoard[i]
         cardContent.appendChild(cardImage);
-        card.appendChild(cardContent); 
+        card.appendChild(cardContent);
         gameBoard.appendChild(card);
     }
 }
 
-// function assignUniqueIDs() { // stuck here 
-//     const cards = document.querySelectorAll('.card');
-//     cards.forEach((card, index) => {
-//         card.id = `card-${index}`;
-//         // console.log(card)
-//     });
+startGame();
 
-
-// }
-
-
-// Step 3: Handle Card Click
-function startGame() { 
+function startGame() {
     gameActive = true;
 }
 
-function handleCardClick(card) {
-    console.log(card);
-    if (!gameActive || card.target.classList.contains('flipped')) {
+// Step 3: Handle Card Click
+function handleCardClick(event) {
+    // console.log(event.target);
+
+    const card = event.target;
+
+    if (!gameActive || !card.classList.contains('flipped')) {
         return; //do nothing if game is not active or card is already flipped
-    }    
+    }
     // check if this is the first click, and if so, start the game
     if (!gameActive) {
         startGame();
     }
 
     flipCard(card);
-
+    // console.log('bp1')
+    // console.log(`flippedCards: ${flippedCards}`)
     if (flippedCards.length === 2) {
+        // console.log('bp2')
         compareCards(flippedCards[0], flippedCards[1]);
         flippedCards = [];
     }
 }
-    function flipCard(card) {
-        card.target.classList.add('flipped');
+function flipCard(card) {
+    card.classList.toggle('flipped');
+    flippedCards.push(card);
+    console.log(flippedCards)
 }
 
 // Step 4: Compare Cards and Check Game Completion
 function compareCards(firstCard, secondCard) {
-    const firstAnimal = firstCard.querySelector('.card-content img').alt;
-    const secondAnimal = secondCard.querySelector('.card-content img').alt;
 
-    if (firstAnimal === secondAnimal) {
-        keepCardsOpen(firstCard, secondCard);
+    // console.log('bp3')
+    if (firstCard.src === secondCard.src) {
+        console.log('match')
         matchedPairs++;
-
-        if(allCardsMatched()) {
+        checkWin();
+        console.log(matchedPairs);
+        if (allCardsMatched()) {
             displayGameCompletionMessage();
             revealPlayAgainButton();
         }
     } else {
+        console.log('no match')
         setTimeout(() => {
-            flipBothCardsBack(firstCard, secondCard);
+            firstCard.classList.add('flipped')
+            secondCard.classList.add('flipped')
+            // flipBothCardsBack(firstCard, secondCard);
         }, 1000);
     }
 }
 
-function keepCardsOpen() {
-
+function checkWin() {
+    if (matchedPairs >= 8) {
+        console.log('you win!')
+    } else {
+        return;
+    }
 }
 
 function allCardsMatched() {
@@ -142,5 +141,4 @@ function resetGameBoard() {
 }
 
 
-initializeGame(); 
-startGame();  // calling this at the end of my script with the intention of it shuffling the array upon page load - does it work?
+// calling this at the end of my script with the intention of it shuffling the array upon page load - does it work?

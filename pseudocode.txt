@@ -1,4 +1,5 @@
 1. Initialize Game:
+    -Click play button on initial page to navigate to game board on second page
     -Create an array to store the animals on the board (e.g., animalsArray).
     -Duplicate the array to create matching pairs.
     -"Shuffle" the arrays to randomize card positions.
@@ -11,7 +12,7 @@
 2. Render Board:
     -Create HTML elements for each card on the game board.
     -Assign unique id to each card card to identify them.
-    -Display the initial state of the board - all card's backs (solid color)
+    -Display the initial state of the board - all card's backs
     -Allow player to click a button to initialize the game
         -button disappears while game is active
 
