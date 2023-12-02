@@ -39,7 +39,7 @@ function createHTMLCards(gameBoard) {
         const j = Math.floor(Math.random() * (a + 1));
         [distroBoard[a], distroBoard[j]] = [distroBoard[j], distroBoard[a]];
     }
-    console.log(distroBoard);
+    // console.log(distroBoard);
     for (let i = 0; i < distroBoard.length; i++) {
         const card = document.createElement('div');
         card.className = 'card';

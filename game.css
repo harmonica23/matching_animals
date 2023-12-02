@@ -15,15 +15,27 @@ body {
     background-size: cover;
     background-position: center;
     min-height: 100vh;
+    max-width: 100%;
 }
 
 header {
     text-align: center;
-    margin: 20px;
+    margin: 2rem;
+}
+
+h1 {
+    font-family: 'Erica One', sans-serif;
+    font-size: 4rem;
+    color: white;
+    text-shadow: 
+    -4px -4px 0 rgb(164 46 37),  
+    4px -4px 0 rgb(164 46 37),
+    -4px  4px 0 rgb(164 46 37),
+    4px  4px 0 rgb(164 46 37);
 }
 
 p {
-    margin-bottom: 32px;
+    margin-bottom: 2rem;
 }
 
 main {
@@ -34,12 +46,14 @@ main {
 #game-board {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
+    gap: 1rem;
 }
 
+
+
 .card {
-    width: 100px;
-    height: 100px;
+    width: 10rem;
+    height: 10rem;
     background-color: rgba(165, 42, 42, 0.67);
     display: flex;
     align-items: center;
@@ -57,12 +71,12 @@ main {
 }
 
 #play-again-btn {
-    margin: 20px auto;
-    padding: 10px; /* space btw text and border */
-    font-size: 16px;
+    margin: 2rem auto;
+    padding: 1rem; /* space btw text and border */
+    font-size: 1rem;
     cursor: pointer;
     border: solid rgb(85, 59, 59);
-    border-radius: 50px;
+    border-radius: 2.5rem;
     display: none; 
     background-color: rgba(165, 42, 42, 0.67);
     color: white;
@@ -71,5 +85,17 @@ main {
 footer {
     text-align: center;
     margin-top: auto;
-    padding: 10px;
+    padding: 1rem;
+}
+
+@media only screen and (max-width: 768px) {
+    body {
+
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    body {
+        
+    }
 }
