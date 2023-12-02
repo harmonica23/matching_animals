@@ -18,6 +18,14 @@ header {
     margin: 20px;
 }
 
+h1 {
+    font-family: 'Erica One', sans-serif;
+}
+
+h2, h3 {
+    font-family: 'Atma', sans-serif;
+}
+
 main {
     text-align: center;
     flex: 1;

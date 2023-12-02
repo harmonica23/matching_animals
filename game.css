@@ -20,22 +20,29 @@ body {
 
 header {
     text-align: center;
-    margin: 2rem;
+    margin: 2rem auto 1rem auto;
 }
 
 h1 {
     font-family: 'Erica One', sans-serif;
-    font-size: 4rem;
+    font-size: 9vmin;
     color: white;
     text-shadow: 
-    -4px -4px 0 rgb(164 46 37),  
-    4px -4px 0 rgb(164 46 37),
-    -4px  4px 0 rgb(164 46 37),
-    4px  4px 0 rgb(164 46 37);
+    -3.5px -3.5px 0 rgb(164 46 37),  
+    3.5px -3.5px 0 rgb(164 46 37),
+    -3.5px  3.5px 0 rgb(164 46 37),
+    3.5px  3.5px 0 rgb(164 46 37);
+    letter-spacing: 3.5px;
 }
 
 p {
     margin-bottom: 2rem;
+    font-family: 'Atma', sans-serif;
+}
+
+#subheader {
+    font-size: 4vmin;
+    margin-bottom: 0;
 }
 
 main {
@@ -49,8 +56,6 @@ main {
     gap: 1rem;
 }
 
-
-
 .card {
     width: 10rem;
     height: 10rem;
@@ -59,6 +64,11 @@ main {
     align-items: center;
     justify-content: center;
     cursor: pointer;
+}
+
+.card-content {
+    width: 10rem;
+    height: 10rem;   
 }
 
 .flipped {
@@ -86,6 +96,7 @@ footer {
     text-align: center;
     margin-top: auto;
     padding: 1rem;
+    font-size: 2vmin;
 }
 
 @media only screen and (max-width: 768px) {
@@ -99,3 +110,4 @@ footer {
         
     }
 }
+
