@@ -57,8 +57,8 @@ main {
 }
 
 .card {
-    width: 10rem;
-    height: 10rem;
+    width: 16vmim;
+    height: 16vmin;
     background-color: rgba(165, 42, 42, 0.67);
     display: flex;
     align-items: center;
@@ -67,8 +67,8 @@ main {
 }
 
 .card-content {
-    width: 10rem;
-    height: 10rem;   
+    width: 16vmim;
+    height: 16vmin;
 }
 
 .flipped {
