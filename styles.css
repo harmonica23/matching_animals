@@ -9,21 +9,34 @@ body {
     padding: 0;
     display: flex;
     flex-direction: column;
-    background-color: rgba(248, 125, 9, 0.628);
+    align-items: center;
+    background-image: url('../images/farm.jpg');
+    background-size: cover;
+    background-position: center;
     min-height: 100vh;
+    max-width: 100%;
 }
 
 header {
     text-align: center;
-    margin: 20px;
+    margin: 2rem auto 1rem auto;
 }
 
 h1 {
     font-family: 'Erica One', sans-serif;
+    font-size: 9vmin;
+    color: white;
+    text-shadow: 
+    -3.5px -3.5px 0 rgb(164 46 37),  
+    3.5px -3.5px 0 rgb(164 46 37),
+    -3.5px  3.5px 0 rgb(164 46 37),
+    3.5px  3.5px 0 rgb(164 46 37);
+    letter-spacing: 3.5px;
 }
 
-h2, h3 {
+h2 {
     font-family: 'Atma', sans-serif;
+    font-size: 5vmin;
 }
 
 main {
@@ -31,21 +44,44 @@ main {
     flex: 1;
 }
 
+
 #start-game-btn {
-    /* margin-top: auto; push button to the bottom */
-    margin: 20px auto;
-    padding: 11px; /* space btw text and border */
-    font-size: 16px;
+    margin: 20vmin auto;
+    padding: 3vmin; /* space btw text and border */
     cursor: pointer;
-    border: solid;
-    border-radius: 50px;
-    display: block; /* set to block initially, but this will shift to none while game is active */
-    background-color: rgb(24, 94, 91);
-    color: white;
+    border: solid rgb(164 46 37);
+    border-radius: 50%;
+    display: block; 
+    background-color: #fff1ce;
+    color: black;
+    box-shadow: 0px 4px 8px rgba(8, 8, 8, 4);
+}
+
+.play {
+    font-family: 'Atma', sans-serif;
+    font-size: 5vmin;
+    line-height: 5vmin;
+}
+
+a {
+    text-decoration: none;
 }
 
 footer {
     text-align: center;
     margin-top: auto;
-    padding: 10px;
+    padding: 1rem;
+    font-size: 2vmin;
+}
+
+@media only screen and (max-width: 768px) {
+    body {
+
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    body {
+        
+    }
 }
