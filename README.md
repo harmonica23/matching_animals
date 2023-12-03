@@ -12,12 +12,17 @@ To play the game, follow these easy steps:
 6. At the end of the game, there is an option to play again.
 ***
 ### **_Technologies Used_**
+Markdown
 HTML
 CSS
 JavaScript
 ***
 ### **_Credits_**
 Fisher-Yates shuffle algorithm shown to me by chatgpt and implemented with the guidance of Glenn Brown.
+
+[Images for cards](https://www.vector4free.com/) from vector4free.
+
+[Background Image](https://www.vecteezy.com/) from vecteezy.
 
 The following images are my wiring framing rendered in **Balsamiq**:
 
