@@ -7,12 +7,15 @@ let flippedCards = [];
 let matchedPairs = 0;
 
 //----cached elements----//
-const playAgainBtn = document.querySelector('#play-again-btn')
+const playAgainBtn = document.querySelector('#play-again-btn');
+const gameBoard = document.getElementById('game-board');
 
 //----event listeners----//
 playAgainBtn.addEventListener('click', () => {
     initializeGame();
 })
+
+gameBoard.addEventListener('click', handleCardClick);
 
 //----functions----//
 initializeGame();
@@ -33,7 +36,6 @@ function renderBoard() {
     createHTMLCards(gameBoard);
 }
 
-// this function generates a set of html elements representing the cards on my gameboard
 function createHTMLCards(gameBoard) {
     //this line creates a new duplicated array of animalsArray - using ... spreads the elements of the array
     let distroBoard = [...animalsArray, ...animalsArray];
@@ -46,8 +48,6 @@ function createHTMLCards(gameBoard) {
     for (let i = 0; i < distroBoard.length; i++) {
         const card = document.createElement('div');
         card.className = 'card';
-    // this code adds an event listener to each card and listens for a 'click' event, then calls the handleCardClick' function when a card is clicked
-        card.addEventListener('click', (event) => handleCardClick(event));
     // creates card element and appends to the game board
         const cardContent = document.createElement('div');
         cardContent.className = 'card-content';
@@ -61,12 +61,10 @@ function createHTMLCards(gameBoard) {
     }
 }
 
-// start the game
 function startGame() {
     gameActive = true;
 }
 
-// Handle Card Click
 function handleCardClick(event) {
     const card = event.target;
     if (!card.classList.contains('flipped')) {
