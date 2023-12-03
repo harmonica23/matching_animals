@@ -9,6 +9,7 @@ let matchedPairs = 0;
 //----cached elements----//
 const playAgainBtn = document.querySelector('#play-again-btn');
 const gameBoard = document.getElementById('game-board');
+const subheader = document.getElementById('subheader');
 
 //----event listeners----//
 playAgainBtn.addEventListener('click', () => {
@@ -72,6 +73,7 @@ function handleCardClick(event) {
     }
     if (!gameActive) {
         gameActive = true;
+        subheader.innerText = ' '; // this makes subheader disappear when 1st card is clicked
     }
     flipCard(card);
     if (flippedCards.length === 2) {
