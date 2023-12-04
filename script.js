@@ -5,6 +5,7 @@ let animalsArray = ['images/cat.jpg', 'images/dog.jpg', 'images/rabbit.jpg', 'im
 let gameActive = false;
 let flippedCards = [];
 let matchedPairs = 0;
+let loading = false;
 
 //----cached elements----//
 const playAgainBtn = document.querySelector('#play-again-btn');
@@ -12,6 +13,7 @@ const gameBoard = document.getElementById('game-board');
 const subheader = document.getElementById('subheader');
 const fiddleAudio = document.getElementById('fiddle-audio');
 const cardFlipAudio = document.getElementById('card-flip-audio');
+document.getElementById("copyright").innerHTML = `&copy; ${new Date().getFullYear()} Matching Animals Memory Game`
 
 //----event listeners----//
 playAgainBtn.addEventListener('click', () => {
@@ -27,6 +29,8 @@ function initializeGame() {
     matchedPairs = 0;
     document.querySelector('#play-again-btn').style.display = 'none';
     renderBoard();
+    fiddleAudio.pause();
+    fiddleAudio.currentTime = 0;
 }
 
 function duplicateArrayToMatchingPairs() {
@@ -69,6 +73,7 @@ function startGame() {
 }
 
 function handleCardClick(event) {
+    if (loading) return;
     const card = event.target;
     if (!card.classList.contains('flipped')) {
         return;
@@ -91,14 +96,18 @@ function flipCard(card) {
 
 // Compare Cards and Check Game Completion
 function compareCards(firstCard, secondCard) {
+    loading = true;
     if (firstCard.src === secondCard.src) {
         matchedPairs++;
+        loading = false;
         checkWin();
     } else {
         setTimeout(() => {
+            cardFlipAudio.play();
             firstCard.classList.add('flipped')
             secondCard.classList.add('flipped')
-        }, 1000);
+            loading = false;
+        }, 500);
     }
 }
 
@@ -106,9 +115,7 @@ function checkWin() {
     if (matchedPairs >= 8) {
     document.querySelector('#play-again-btn').style.display = 'block';
     fiddleAudio.volume = 0.5;
-    console.log('attemping to play audio')
     fiddleAudio.play();
-    // console.log("fiddle-audio played")
     } else {
         return;
     }
