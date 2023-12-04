@@ -10,6 +10,8 @@ let matchedPairs = 0;
 const playAgainBtn = document.querySelector('#play-again-btn');
 const gameBoard = document.getElementById('game-board');
 const subheader = document.getElementById('subheader');
+const fiddleAudio = document.getElementById('fiddle-audio');
+const cardFlipAudio = document.getElementById('card-flip-audio');
 
 //----event listeners----//
 playAgainBtn.addEventListener('click', () => {
@@ -102,14 +104,15 @@ function compareCards(firstCard, secondCard) {
 
 function checkWin() {
     if (matchedPairs >= 8) {
-        console.log('you win!')
     document.querySelector('#play-again-btn').style.display = 'block';
+    fiddleAudio.volume = 0.5;
+    console.log('attemping to play audio')
+    fiddleAudio.play();
+    // console.log("fiddle-audio played")
     } else {
         return;
     }
 }
-
-
 
 
 
