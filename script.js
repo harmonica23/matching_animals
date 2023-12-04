@@ -114,13 +114,12 @@ function compareCards(firstCard, secondCard) {
 function checkWin() {
     if (matchedPairs >= 8) {
     document.querySelector('#play-again-btn').style.display = 'block';
-    fiddleAudio.volume = 0.5;
+    fiddleAudio.volume = 0.1;
     fiddleAudio.play();
     } else {
         return;
     }
 }
-
 
 
 
