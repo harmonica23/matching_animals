@@ -28,11 +28,11 @@ h1 {
     font-size: 9vmin;
     color: white;
     text-shadow: 
-    -3.5px -3.5px 0 rgb(164 46 37),  
-    3.5px -3.5px 0 rgb(164 46 37),
-    -3.5px  3.5px 0 rgb(164 46 37),
-    3.5px  3.5px 0 rgb(164 46 37);
-    letter-spacing: 3.5px;
+    -0.2rem -0.2rem 0 rgb(164 46 37),  
+    0.2rem -0.2rem 0 rgb(164 46 37),
+    -0.2rem  0.2rem 0 rgb(164 46 37),
+    0.2rem  0.2rem 0 rgb(164 46 37);
+    letter-spacing: 0.1rem;
 }
 
 p {
@@ -46,9 +46,9 @@ p {
 }
 
 main {
+    display: flex;
     text-align: center;
-    flex: 1;
-    position: relative;
+    position: relative;    
 }
 
 #game-board {
@@ -132,7 +132,9 @@ footer {
 }
 
 @media (max-width: 600px) {
-    #play-again-btn {
-        margin-top: -38.5%;
+    main {
+    #game-board {
+        gap: 0.5rem;
     }
+}
 }
