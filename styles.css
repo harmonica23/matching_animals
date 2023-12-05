@@ -27,11 +27,11 @@ h1 {
     font-size: 9vmin;
     color: white;
     text-shadow: 
-    -3.5px -3.5px 0 rgb(164 46 37),  
-    3.5px -3.5px 0 rgb(164 46 37),
-    -3.5px  3.5px 0 rgb(164 46 37),
-    3.5px  3.5px 0 rgb(164 46 37);
-    letter-spacing: 3.5px;
+    -0.2rem -0.2rem 0 rgb(164 46 37),  
+    0.2rem -0.2rem 0 rgb(164 46 37),
+    -0.2rem  0.2rem 0 rgb(164 46 37),
+    0.2rem  0.2rem 0 rgb(164 46 37);
+    letter-spacing: 0.1rem;
 }
 
 h2 {

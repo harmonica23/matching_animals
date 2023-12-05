@@ -1,6 +1,7 @@
 # Matching Animals
 ### By: Erica Harmon
-Welcome to this simple brain stimulating game developed to challenge the player's memory as they recall matching pairs of cards. This game is fun for all ages.
+
+Welcome to this simple yet brain stimulating game developed to challenge the player's memory to recall matching pairs of cards. </br>This game is fun for all ages!
 ***
 ### **_Getting Started_**
 To play the game, follow these easy steps:
@@ -12,23 +13,29 @@ To play the game, follow these easy steps:
 6. At the end of the game, there is an option to play again.
 ***
 ### **_Technologies Used_**
-Markdown
-HTML
-CSS
-JavaScript
+- Markdown
+- HTML
+- CSS
+- JavaScript
 ***
 ### **_Credits_**
 1. Fisher-Yates shuffle algorithm shown to me by chatgpt and implemented with the guidance of Glenn Brown.
 
-2. [Images for cards](https://www.vector4free.com/) from vector4free.
-
-3. [Background Image](https://www.vecteezy.com/) from vecteezy.
+2. Images for cards found on [vecteezy](https://www.vecteezy.com/):
+    - [Background Image](https://www.vecteezy.com/vector-art/692349-farm-fields-in-minimal-and-flat-art-work-style) of farm by Yotin Inkammoon
+    - [Chicken dinner](https://www.vecteezy.com/vector-art/23014884-chicken-wings-and-ketchup-plate-illustration) by Asia Sultana
+    - [Pig](https://www.vecteezy.com/vector-art/8934824-cute-pig-cartoon-vector-cartoon), [Cow](https://www.vecteezy.com/vector-art/8934810-cute-cow-cartoon-illustration), and [Sheep](https://www.vecteezy.com/vector-art/8934820-cute-sheep-cartoon-vector-illustratuion) by Wisnu Ali
+    - [Horse](https://www.vecteezy.com/vector-art/7797384-horse-vector-for-coloring-book) by Berti Wijaya
+    - [Cat](https://www.vecteezy.com/vector-art/4218321-cute-cat-white-pet-cartoon-character) by Andres Ramos
+    - [Dog](https://www.vecteezy.com/vector-art/20296472-dog-realistic-vector-illustration-isolated-on-white-background) by Surkhad Ahmad
+    - [Bunny](https://www.vecteezy.com/vector-art/8934820-cute-sheep-cartoon-vector-illustratuion) by Matt Cole
+    - [Chicken](https://www.vecteezy.com/vector-art/13266220-cartoon-vector-chicken-on-white-background-vector-hen) by Gruianu Mihai
 
 4. [Sound wavs](https://freesound.org/) from freesound:
     - Bluegrass Fiddle by TheFlyFishingFilmmaker
     - Card Flip by f4ngy
 
-5. The following images are my wiring framing rendered in **Balsamiq**:
+5. Game wire frame rendered in **Balsamiq**:
 
 ![default state](https://github.com/harmonica23/matching_animals/assets/150699243/1c93c526-f725-4d74-8b10-34b703454cf8)
 
@@ -42,3 +49,5 @@ JavaScript
 
 ![Board complete - end game](https://github.com/harmonica23/matching_animals/assets/150699243/f777381a-3e15-455b-86b1-b780a17767db)
 
+***
+&copy; 2023 Matching Animals Memory Game

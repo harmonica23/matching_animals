@@ -44,18 +44,14 @@ function renderBoard() {
 }
 
 function createHTMLCards(gameBoard) {
-    //this line creates a new duplicated array of animalsArray - using ... spreads the elements of the array
     let distroBoard = [...animalsArray, ...animalsArray];
-    //this section uses the Fisher-Yates algorithm to shuffle the 'distroboard' so cards are distributed randomly on the board
     for (let a = distroBoard.length - 1; a > 0; a--) {
         const j = Math.floor(Math.random() * (a + 1));
         [distroBoard[a], distroBoard[j]] = [distroBoard[j], distroBoard[a]];
     }
-    // this section creates the cards - the code enters a loop to create HTML elements for each card. It used the document.createElement method to create a div element and set its class name to 'card'
     for (let i = 0; i < distroBoard.length; i++) {
         const card = document.createElement('div');
         card.className = 'card';
-    // creates card element and appends to the game board
         const cardContent = document.createElement('div');
         cardContent.className = 'card-content';
         const cardImage = document.createElement('img');
