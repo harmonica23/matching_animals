@@ -80,7 +80,7 @@ function handleCardClick(event) {
     }
     if (!gameActive) {
         gameActive = true;
-        subheader.innerText = ' '; // this makes subheader disappear when 1st card is clicked
+        subheader.innerText = ' ';
     }
     flipCard(card);
     if (flippedCards.length === 2) {
@@ -94,7 +94,6 @@ function flipCard(card) {
     flippedCards.push(card);
 }
 
-// Compare Cards and Check Game Completion
 function compareCards(firstCard, secondCard) {
     loading = true;
     if (firstCard.src === secondCard.src) {
@@ -103,7 +102,8 @@ function compareCards(firstCard, secondCard) {
         checkWin();
     } else {
         setTimeout(() => {
-            cardFlipAudio.play();
+            cardFlipAudio.play()
+            cardFlipAudio.volume = 0.3;
             firstCard.classList.add('flipped')
             secondCard.classList.add('flipped')
             loading = false;
@@ -114,8 +114,8 @@ function compareCards(firstCard, secondCard) {
 function checkWin() {
     if (matchedPairs >= 8) {
     document.querySelector('#play-again-btn').style.display = 'block';
-    fiddleAudio.volume = 0.1;
     fiddleAudio.play();
+    fiddleAudio.volume = 0.08;
     } else {
         return;
     }

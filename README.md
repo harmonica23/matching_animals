@@ -18,13 +18,17 @@ CSS
 JavaScript
 ***
 ### **_Credits_**
-Fisher-Yates shuffle algorithm shown to me by chatgpt and implemented with the guidance of Glenn Brown.
+1. Fisher-Yates shuffle algorithm shown to me by chatgpt and implemented with the guidance of Glenn Brown.
 
-[Images for cards](https://www.vector4free.com/) from vector4free.
+2. [Images for cards](https://www.vector4free.com/) from vector4free.
 
-[Background Image](https://www.vecteezy.com/) from vecteezy.
+3. [Background Image](https://www.vecteezy.com/) from vecteezy.
 
-The following images are my wiring framing rendered in **Balsamiq**:
+4. [Sound wavs](https://freesound.org/) from freesound:
+    - Bluegrass Fiddle by TheFlyFishingFilmmaker
+    - Card Flip by f4ngy
+
+5. The following images are my wiring framing rendered in **Balsamiq**:
 
 ![default state](https://github.com/harmonica23/matching_animals/assets/150699243/1c93c526-f725-4d74-8b10-34b703454cf8)
 
