@@ -35,7 +35,7 @@ To play the game, follow these easy steps:
     - Bluegrass Fiddle by TheFlyFishingFilmmaker
     - Card Flip by f4ngy
 
-5. Game wire frame rendered in **Balsamiq**:
+5. Game wire frame rendered in **Balsamiq** with [images](https://www.shutterstock.com/image-vector/animal-icons-260nw-493538731.jpg) from shutterstock:
 
 ![default state](https://github.com/harmonica23/matching_animals/assets/150699243/1c93c526-f725-4d74-8b10-34b703454cf8)
 
