@@ -1,6 +1,8 @@
 # Matching Animals
 ### By: Erica Harmon
 
+[Click here](https://matching-animals.surge.sh/) to play!
+
 Welcome to this simple yet brain stimulating game developed to challenge the player's memory to recall matching pairs of cards. </br>This game is fun for all ages!
 ***
 ### **_Getting Started_**
